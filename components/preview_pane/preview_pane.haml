@@ -1,14 +1,16 @@
 .preview-pane.hidden
-  .preview-pane__helptext{translate: "loomio_content_preview.preview_pane.helptext"}
-  .thread-item__header.media
-    .media-left
-      %user_avatar{user: "comment.author()", size: "small"}
-    .media-body
-      %h3.new-comment__in-reply-to{ng-if: "comment.parentId", id: "event-{{event.id}}"}
-        %strong
+  .preview-pane__without-content{ng-if: "!comment.body"}
+    %span{translate: "loomio_content_preview.preview_pane.no_content"}
+  .preview-pane__with-content{ng-if: "comment.body"}
+    .thread-item__header.media
+      .media-left
+        %user_avatar{user: "comment.author()", size: "small"}
+      .media-body
+        %h3.new-comment__in-reply-to{ng-if: "comment.parentId", id: "event-{{event.id}}"}
+          %strong
+            %a{lmo-href-for: "comment.author()"}> {{ comment.authorName() }}
+          %span{translate: "new_comment_item.in_reply_to", translate-value-recipient: "{{comment.parentAuthorName}}"}
+        %h3.new-comment__author-name{ng-if: "!comment.parentId"}
           %a{lmo-href-for: "comment.author()"}> {{ comment.authorName() }}
-        %span{translate: "new_comment_item.in_reply_to", translate-value-recipient: "{{comment.parentAuthorName}}"}
-      %h3.new-comment__author-name{ng-if: "!comment.parentId"}
-        %a{lmo-href-for: "comment.author()"}> {{ comment.authorName() }}
-      .sr-only{ng-if: "!comment.parentId", id: "event-{{event.id}}", translate: "new_comment_item.aria_label", translate-value-author: "{{comment.authorName()}}"}
-  .thread-item__body.new-comment__body.lmo-markdown-wrapper{marked: "comment.cookedBody()"}
+        .sr-only{ng-if: "!comment.parentId", id: "event-{{event.id}}", translate: "new_comment_item.aria_label", translate-value-author: "{{comment.authorName()}}"}
+    .thread-item__body.new-comment__body.lmo-markdown-wrapper{marked: "comment.cookedBody()"}

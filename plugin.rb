@@ -4,8 +4,7 @@ module Plugins
       setup! :loomio_content_preview do |plugin|
         plugin.enabled = true
 
-        plugin.use_component :preview_form
-        plugin.use_component :preview_button, outlet: :after_comment_form
+        plugin.use_component :preview_button, outlet: :before_comment_form_textarea
         plugin.use_component :preview_pane, outlet: :after_comment_form_textarea
 
         plugin.use_translations 'config/locales', :loomio_content_preview
