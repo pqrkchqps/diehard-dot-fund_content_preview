@@ -1,0 +1,22 @@
+.preview-form{ng-submit: "submit()"}
+  .lmo-disabled-form{ng-show: "isDisabled"}
+  .modal-body
+    .preview-form__content-composer
+      %textarea.lmo-textarea.form-control.comment-form__comment-field.lmo-primary-form-input{ng-model: "comment.body", ng-disabled: "isDisabled", mentio: true, mentio-trigger-char: "'@'", mentio_items: "mentionables", mentio-template-url: "generated/components/thread_page/comment_form/mentio_menu.html", mentio-search: "fetchByNameFragment(term)", ng-model-options: "{ updateOn: 'default blur', debounce: {'default': 150, 'blur': 0} }"}
+    .preview-form__content-preview
+      .thread-item__header.media
+        .media-left
+          %user_avatar{user: "comment.author()", size: "small"}
+        .media-body
+          %h3.new-comment__in-reply-to{ng-if: "comment.parentId", id: "event-{{event.id}}"}
+            %strong
+              %a{lmo-href-for: "comment.author()"}> {{ comment.authorName() }}
+            %span{translate: "new_comment_item.in_reply_to", translate-value-recipient: "{{comment.parentAuthorName}}"}
+          %h3.new-comment__author-name{ng-if: "!comment.parentId"}
+            %a{lmo-href-for: "comment.author()"}> {{ comment.authorName() }}
+          .sr-only{ng-if: "!comment.parentId", id: "event-{{event.id}}", translate: "new_comment_item.aria_label", translate-value-author: "{{comment.authorName()}}"}
+      .thread-item__body.new-comment__body.lmo-markdown-wrapper{marked: "comment.cookedBody()"}
+
+  .modal-footer
+    %button.lmo-btn--submit{type: "button", translate: "preview_form.post"}
+    %button.lmo-btn--cancel{ng-click: "$close()", type: "button", translate: "common.action.cancel"}

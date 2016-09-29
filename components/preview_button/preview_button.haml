@@ -1,0 +1,4 @@
+.preview-button
+  %button.lmo-btn--default{type: "button", ng-click: "toggle()", aria-label: "{{ 'preview_button.label' | translate }}"}
+    %span{ng-if: "!previewing", translate: "loomio_content_preview.preview_button.preview"}
+    %span{ng-if: "previewing", translate: "common.action.edit"}

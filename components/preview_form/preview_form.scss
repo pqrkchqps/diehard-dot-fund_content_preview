@@ -1,0 +1,22 @@
+.preview-form__content-preview {
+  background: $card-background-color;
+  padding: 10px;
+}
+
+@media (min-width: $small-max-px) {
+  .preview-form .modal-body {
+    @include displayFlex;
+    width: 100%;
+  }
+
+  .preview-form__content-composer {
+    flex-basis: 50%;
+    padding: 10px 15px 0 0;
+    border-right: 1px solid $border-color;
+  }
+
+  .preview-form__content-preview {
+    flex-basis: 50%;
+    margin: 10px;
+  }
+}
