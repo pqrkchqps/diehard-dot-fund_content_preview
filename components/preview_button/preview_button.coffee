@@ -10,6 +10,6 @@ angular.module('loomioApp').directive 'previewButton', ->
 
     $scope.toggle = ->
       $scope.previewing = !$scope.previewing
-      togglers = document.querySelectorAll('.preview-pane, .comment-form__textarea-wrapper')
+      togglers = document.querySelectorAll('.preview-pane, .comment-form__textarea-wrapper, .comment-form__in-reply-to')
       angular.element(togglers).toggleClass('hidden')
       return

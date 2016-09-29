@@ -7,10 +7,8 @@
         %user_avatar{user: "comment.author()", size: "small"}
       .media-body
         %h3.new-comment__in-reply-to{ng-if: "comment.parentId", id: "event-{{event.id}}"}
-          %strong
-            %a{lmo-href-for: "comment.author()"}> {{ comment.authorName() }}
+          %strong> {{ comment.authorName() }}
           %span{translate: "new_comment_item.in_reply_to", translate-value-recipient: "{{comment.parentAuthorName}}"}
-        %h3.new-comment__author-name{ng-if: "!comment.parentId"}
-          %a{lmo-href-for: "comment.author()"}> {{ comment.authorName() }}
+        %h3.new-comment__author-name{ng-if: "!comment.parentId"}> {{ comment.authorName() }}
         .sr-only{ng-if: "!comment.parentId", id: "event-{{event.id}}", translate: "new_comment_item.aria_label", translate-value-author: "{{comment.authorName()}}"}
     .thread-item__body.new-comment__body.lmo-markdown-wrapper{marked: "comment.cookedBody()"}
