@@ -1,15 +1,16 @@
 angular.module('loomioApp').directive 'previewButton', ->
-  scope: {comment: '='}
+  scope: {comment: '=?', proposal: '=?', discussion: '=?'}
   restrict: 'E'
   templateUrl: 'generated/components/preview_button/preview_button.html'
   replace: true
-  controller: ($scope, ModalService) ->
+  controller: ($scope) ->
 
-    $scope.open = ->
-      ModalService.open PreviewForm, comment: -> $scope.comment
+    selectors = ->
+      if $scope.comment
+        '.comment-form .preview-pane, .comment-form__textarea-wrapper, .comment-form__in-reply-to'
+      else
+        'md-dialog .preview-pane, .lmo-textarea-wrapper'
 
     $scope.toggle = ->
+      angular.element(document.querySelectorAll(selectors())).toggleClass('hidden')
       $scope.previewing = !$scope.previewing
-      togglers = document.querySelectorAll('.preview-pane, .comment-form__textarea-wrapper, .comment-form__in-reply-to')
-      angular.element(togglers).toggleClass('hidden')
-      return
