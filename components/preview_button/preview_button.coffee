@@ -14,3 +14,4 @@ angular.module('loomioApp').directive 'previewButton', ->
     $scope.toggle = ->
       angular.element(document.querySelectorAll(selectors())).toggleClass('hidden')
       $scope.previewing = !$scope.previewing
+    $scope.$on 'commentFormInit', $scope.toggle

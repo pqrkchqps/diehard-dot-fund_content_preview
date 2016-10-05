@@ -6,7 +6,9 @@
   padding: 10px;
   min-height: 100px;
   margin-bottom: 10px;
-  border: 1px solid $border-color
+  background: $card-background-color;
+  border: 1px solid $border-color;
+  border-radius: 4px;
 }
 
 .preview-pane__without-content {
