@@ -19,6 +19,7 @@ module Plugins
 
         plugin.use_test_route(:setup_comment_preview) do
           sign_in patrick
+          test_discussion.group.update(enable_experiments: true)
           @comment = CommentService.create(
             comment: FactoryGirl.build(:comment, discussion: test_discussion),
             actor: patrick
