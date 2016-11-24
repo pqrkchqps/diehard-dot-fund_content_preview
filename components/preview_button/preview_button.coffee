@@ -3,7 +3,7 @@ angular.module('loomioApp').directive 'previewButton', ->
   restrict: 'E'
   templateUrl: 'generated/components/preview_button/preview_button.html'
   replace: true
-  controller: ($scope) ->
+  controller: ($scope, $translate) ->
 
     selectors = ->
       if $scope.comment
@@ -16,3 +16,7 @@ angular.module('loomioApp').directive 'previewButton', ->
       $scope.previewing = !$scope.previewing
     $scope.$on 'commentFormInit', ->
       $scope.toggle() if $scope.previewing
+
+    $scope.translations =
+      preview: $translate.instant('loomio_content_preview.preview_button.preview')
+      edit:    $translate.instant('common.action.edit')
