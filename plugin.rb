@@ -1,7 +1,7 @@
 module Plugins
   module Diehard_FundContentPreview
     class Plugin < Plugins::Base
-      setup! :diehard_fund_content_preview do |plugin|
+      setup! 'diehard-dot-fund_content_preview' do |plugin|
         plugin.enabled = true
 
         plugin.use_component :preview_button, outlet: [
