@@ -1,7 +1,7 @@
 module Plugins
-  module LoomioContentPreview
+  module Diehard_FundContentPreview
     class Plugin < Plugins::Base
-      setup! :loomio_content_preview do |plugin|
+      setup! :diehard_fund_content_preview do |plugin|
         plugin.enabled = true
 
         plugin.use_component :preview_button, outlet: [
@@ -15,7 +15,7 @@ module Plugins
           :after_discussion_form_textarea
         ]
 
-        plugin.use_translations 'config/locales', :loomio_content_preview
+        plugin.use_translations 'config/locales', :diehard_fund_content_preview
 
         plugin.use_test_route(:setup_comment_preview) do
           sign_in patrick
