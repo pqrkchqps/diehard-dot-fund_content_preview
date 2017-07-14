@@ -1,5 +1,5 @@
 module Plugins
-  module Diehard_FundContentPreview
+  module DiehardFundContentPreview
     class Plugin < Plugins::Base
       setup! 'diehard-dot-fund_content_preview' do |plugin|
         plugin.enabled = true
