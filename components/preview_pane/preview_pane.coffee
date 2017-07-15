@@ -1,4 +1,4 @@
-angular.module('diehard_fundApp').directive 'previewPane', ->
+angular.module('diehardFundApp').directive 'previewPane', ->
   scope: {comment: '=?', proposal: '=?', discussion: '=?'}
   restrict: 'E'
   templateUrl: 'generated/components/preview_pane/preview_pane.html'
